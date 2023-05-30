@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar mode="md">
+    <ion-title color="dark">
+      <span><b>Home</b></span>
+    <ion-icon name="chevron-down-outline" size="small">
+    </ion-icon>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="col-12 text-center mt-2">
+    <img src="assets/braai.jpg" width="1200px" />
+  </div>
+  <ion-list lines="inset">
+    <ion-list-header class="ion-margin-bottom">
+      <ion-label>
+        <h4><b>Restaurants Nearby</b></h4>
+        <p>Discover unique tastes near you</p>
+      </ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let items of items" (click)="addToCart(items)">
+      <ion-thumbnail slot="start">
+        <img src = {{items.image}}>
+      </ion-thumbnail>
+      <ion-label>
+        <h4><b>{{items?.name}}</b></h4>
+        <ion-text color="medium">
+          <p class="pStyle">
+            {{items.foodtype}}
+          </p>
+        </ion-text>
+        <h5>{{items.topdish}}</h5>
+        <span>
+          {{items.rating}}
+          <ion-icon name="star"></ion-icon>
+          {{items.distance}} Km Away 
+          R{{items.price}}
+          </span>
+          <p class="pStyle">
+            {{items.time}} Mins.
+          </p>
+      </ion-label>
+    </ion-item>
+
+   

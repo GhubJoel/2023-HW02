@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+<ion-item  *ngFor="let items of cart">
+  <ion-thumbnail slot="start">
+    <img *ngIf="items.image" [src]="items.image" />
+  </ion-thumbnail>
+  <ion-label>
+    <h4><b>{{items.name}}</b></h4>
+    <b>{{items.topdish}}</b>
+    <ion-text color="medium">
+      <p class="pStyle">
+        {{items.foodtype}}
+      </p>
+    </ion-text>
+    <span>
+      {{items.rating}}
+      <ion-icon name="star"></ion-icon>
+      {{items.distance}} Km Away 
+      R{{items.price}}
+      </span>
+      <p class="pStyle">
+        {{items.time}} Mins.
+      </p>
+  </ion-label>
+</ion-item>
+<ion-item>
+  <ion-icon name="list" aria-hidden="true"></ion-icon>
+  <ion-input placeholder="Any Instructions? We will try our best"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-title>Bill Details</ion-title>
+</ion-item>
+<ion-item *ngFor="let items of cart">
+  Item Total: R{{items.price}} 
+  <ion-item></ion-item>
+  Delivery Fee: R{{delivery}}
+  <ion-item></ion-item>
+  To Pay: R{{total}} 
+</ion-item>
+<ion-item>
+  <ion-label>
+    <span>
+      <ion-icon name="home"></ion-icon>
+      <b>Delivery To Office</b>
+    </span>
+  </ion-label>
+  </ion-item>
+  <ion-item>
+    <span>
+      University of Pretoria
+     </span>
+     <ion-button item-right color="warning">CHANGE</ion-button>
+  </ion-item>
+  <ion-item>
+    <span class="textcol">Final To PAY: R{{total}}<ion-button size="default" color="success" (click)="doboth(items)">Make Payment</ion-button></span>
+  </ion-item>
+</ion-content>
